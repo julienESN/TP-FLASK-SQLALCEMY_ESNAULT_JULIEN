@@ -1,0 +1,37 @@
+# 1. Recherche de Chambres Disponibles
+GET http://localhost:5000/api/chambres/disponibles?date_arrivee=2024-01-01&date_depart=2024-01-10
+# 2. Création de Réservation
+//If its not working , add an id_client = 1 manually in sql
+POST http://localhost:5000/api/reservations
+Content-Type: application/json
+
+{
+    "id_client": 1,
+    "id_chambre": 1,
+    "date_arrivee": "2024-01-01",
+    "date_depart": "2024-01-10"
+}
+
+### 4. Gestion des Chambres
+# - **Ajouter une Chambre :**
+POST http://localhost:5000/api/chambres
+Content-Type: application/json
+
+{
+    "numero": "101",
+    "type": "Deluxe",
+    "prix": 150
+}
+### Modifier une Chambre :
+
+PUT http://localhost:5000/api/chambres/1
+Content-Type: application/json
+
+{
+    "numero": "103",
+    "type": "suite deluxe",
+    "prix": 200.00
+}
+### Supprimer une Chambre :
+
+DELETE http://localhost:5000/api/chambres/1
